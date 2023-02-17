@@ -27,7 +27,7 @@ jobs:
         echo env.NAME >> .env
         npm run build
       env:
-        NAME: SHRIRAMU
+        NAME: REACT_APP_NAME=SHRIRAMU
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
