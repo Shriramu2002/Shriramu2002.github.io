@@ -24,8 +24,8 @@ jobs:
     - name: Build app
       run: |
         touch .env
-        echo env.NAME
-        echo env.NAME >> .env
+        echo ${{env.NAME}}
+        echo ${{env.NAME}} >> .env
         cat .env
         npm run build
       env:
