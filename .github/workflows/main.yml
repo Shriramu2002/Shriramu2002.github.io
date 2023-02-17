@@ -22,7 +22,12 @@ jobs:
       run: npm ci
 
     - name: Build app
-      run: npm run build
+      run: |
+        touch .env
+        echo env.NAME >> .env
+        npm run build
+      env:
+        NAME: SHRIRAMU
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
