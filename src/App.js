@@ -1,8 +1,31 @@
 import logo from './logo.svg';
 import './App.css';
+import { useEffect,useRef } from 'react';
+import axios from 'axios';
 
 function App() {
   console.log(process.env.REACT_APP_NAME);
+  let posts= useRef();
+  useEffect(()=>{
+  const apiUrl = "https://graph.instagram.com/me/media";
+  console.log(process.env.REACT_APP_IG_KEY);
+  const accessToken = process.env.REACT_APP_IG_KEY ;
+  const params = new URLSearchParams({
+  fields: "id,caption,media_type,media_url,thumbnail_url,permalink",
+  access_token: accessToken,
+  });
+    // console.log("inside useEffect");
+    axios.get(apiUrl + "?" + params).then(response=>{
+        posts.current = response.data.data;
+    }).then(()=>{
+        console.log(posts.current);
+    }).catch(error => {
+        console.log(error);
+    });
+},
+[]
+);
+
   return (
     <div className="App">
       <header className="App-header">
