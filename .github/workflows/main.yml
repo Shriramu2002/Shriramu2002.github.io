@@ -22,16 +22,10 @@ jobs:
       run: npm ci
 
     - name: Build app
-      run: |
-        touch .env
-        echo ${{env.NAME}}
-        echo ${{env.NAME}} >> .env
-        echo REACT_APP_IG_KEY=${{secrets.IG_TOKEN}} >> .env
-        cat .env
-        npm run build
+      run: npm run build
       env:  
-        NAME: REACT_APP_NAME=SHRIRAMU
-        TOKEN: REACT_APP_IG_KEY=${{secrets.IG_TOKEN}}
+        REACT_APP_NAME: SHRIRAMU
+        REACT_APP_IG_KEY: ${{secrets.IG_TOKEN}}
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
