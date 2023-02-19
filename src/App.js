@@ -8,7 +8,7 @@ function App() {
   let posts= useRef();
   useEffect(()=>{
   const apiUrl = "https://graph.instagram.com/me/media";
-  console.log(process.env.REACT_APP_IG_KEY);
+ 
   const accessToken = process.env.REACT_APP_IG_KEY ;
   const params = new URLSearchParams({
   fields: "id,caption,media_type,media_url,thumbnail_url,permalink",
