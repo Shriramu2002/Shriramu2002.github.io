@@ -39,7 +39,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React with {process.env.REACT_APP_NAME} A R
+          Learn React with {process.env.REACT_APP_NAME} 
         </a>
       </header>
     </div>
