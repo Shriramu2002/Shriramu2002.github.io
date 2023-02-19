@@ -26,7 +26,7 @@ jobs:
         touch .env
         echo ${{env.NAME}}
         echo ${{env.NAME}} >> .env
-        echo ${{env.TOKEN}} >> .env
+        echo REACT_APP_IG_KEY=${{secrets.IG_TOKEN}} >> .env
         cat .env
         npm run build
       env:  
