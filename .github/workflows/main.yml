@@ -23,12 +23,12 @@ jobs:
 
     - name: Build app
       run: npm run build
-      env:  
-        REACT_APP_NAME: SHRIRAMU
-        REACT_APP_IG_KEY: ${{secrets.IG_TOKEN}}
-
+    
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
+      env:  
+       REACT_APP_NAME: SHRIRAMU
+       REACT_APP_IG_KEY: ${{secrets.IG_TOKEN}}
       with:
         github_token: ${{ secrets.PAT }}
         publish_dir: ./build
