@@ -25,7 +25,7 @@ jobs:
       run: |
         npm run build
         touch build/configure.js
-        echo window.REACT_APP_NAME=${{secrets.REACT_APP_NAME}} >> build/configure.js
+        echo window.REACT_APP_NAME=${{secrets.IG_TOKEN}} >> build/configure.js
         cat build/configure.js
             
     - name: Deploy to GitHub Pages
