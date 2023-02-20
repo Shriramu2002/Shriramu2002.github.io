@@ -26,7 +26,7 @@ jobs:
         npm run build
         touch build/configure.js
         echo window.REACT_APP_NAME=${{secrets.REACT_APP_NAME}} >> build/configure.js
-        cat build/confiure.js
+        cat build/configure.js
             
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
