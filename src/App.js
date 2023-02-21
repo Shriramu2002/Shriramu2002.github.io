@@ -4,15 +4,15 @@ import { useEffect,useRef } from 'react';
 import axios from 'axios';
 
 function App() {
-  console.log(process.env.REACT_APP_NAME);
+  console.log(process.env);
   let posts= useRef();
   useEffect(()=>{
   const apiUrl = "https://graph.instagram.com/me/media";
  
-  const accessToken = process.env.REACT_APP_IG_KEY ;
+ 
   const params = new URLSearchParams({
   fields: "id,caption,media_type,media_url,thumbnail_url,permalink",
-  access_token: accessToken,
+  access_token: process.env.REACT_APP_IG_KEY,
   });
     // console.log("inside useEffect");
     axios.get(apiUrl + "?" + params).then(response=>{
