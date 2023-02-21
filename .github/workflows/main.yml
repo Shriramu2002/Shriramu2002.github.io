@@ -22,14 +22,22 @@ jobs:
       run: npm ci
 
     - name: Build app
-      run: |
-        npm run build
-        touch build/configure.js
-        echo window.REACT_APP_NAME=${{secrets.IG_TOKEN}} >> build/configure.js
-        cat build/configure.js
-            
+      run: npm run build
+         
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.PAT }}
         publish_dir: ./build
+        
+    - name: Checkout gh-pages branch
+      uses: actions/checkout@v2
+      with:
+        ref: gh-pages
+        
+    - name: add configure.js file
+      run: |
+       touch configure.js
+       echo window.REACT_APP_NAME=${{secrets.IG_TOKEN}} >> configure.js
+       cat configure.js
+     
